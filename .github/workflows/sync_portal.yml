@@ -1,0 +1,49 @@
+name: Atualização Automática do Portal
+
+on:
+  schedule:
+    # Executa diariamente às 06:00 UTC (03:00 Horário de Brasília)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Permite disparo manual com um clique na interface do GitHub Actions
+  push:
+    branches:
+      - main
+    paths:
+      - 'sync_portal.py'
+      - '.github/workflows/sync_portal.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-portal:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Sincronizar Repositórios e Atualizar index.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python sync_portal.py
+
+      - name: Verificar e Publicar Alterações
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain index.html)" ]; then
+            git add index.html
+            git commit -m "chore(sync): atualizar catalogo de repositorios do GitHub [skip ci]"
+            git push origin main
+            echo "Portal atualizado e publicado com sucesso!"
+          else
+            echo "Nenhuma alteração detectada no catálogo de repositórios."
+          fi
