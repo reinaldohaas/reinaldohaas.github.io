@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>As Duas Árvores — Nossa Família</title>
+<meta name="description" content="Da Alemanha ao Sul do Brasil">
+<link rel="stylesheet" href="estilo.css">
+</head><body>
+<header class="topo"><div class="in"><a class="livro" href="index.html">Nossa Família</a><a href="index.html#sumario">Sumário</a></div></header>
+<main>
+<h2 class="unnumbered" id="arvores">As Duas Árvores</h2>
+<p>Estas são as árvores de vocês, até onde sei hoje, com as datas de nascimento, de morte, de casamento e de chegada ao Brasil. As caixas com “a descobrir” não são descuido: são as perguntas que deixo para vocês. Pessoas vivas aparecem só com o ano, ou sem data.</p>
+<figure>
+<img src="imagens/arvore_haas_doerner.jpg" style="width:100.0%" alt="A árvore do lado do pai de Matheus e Lucas: Haas, Meier, Dörner, Eller, Preis, Michels e Arns." />
+<figcaption aria-hidden="true">A árvore do lado do pai de Matheus e Lucas: Haas, Meier, Dörner, Eller, Preis, Michels e Arns.</figcaption>
+</figure>
+<figure>
+<img src="imagens/arvore_funke_lohmann.jpg" style="width:100.0%" alt="A árvore do lado da mãe de Matheus e Lucas: Funke, Aenishaenslin, Hoeveler e Lohmann." />
+<figcaption aria-hidden="true">A árvore do lado da mãe de Matheus e Lucas: Funke, Aenishaenslin, Hoeveler e Lohmann.</figcaption>
+</figure>
+<nav class="pag"><a href="21_nota_fontes.html"><small>← anterior</small>Nota sobre as Fontes e os Enigmas em Aberto</a></nav>
+</main><div id="zoom"><img alt=""></div><script>
+const z=document.getElementById('zoom'),zi=z.querySelector('img');
+document.querySelectorAll('figure img').forEach(i=>i.addEventListener('click',()=>{zi.src=i.src;zi.alt=i.alt;z.style.display='flex'}));
+z.addEventListener('click',()=>{z.style.display='none'});
+</script>
+</body></html>
