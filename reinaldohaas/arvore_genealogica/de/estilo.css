@@ -27,7 +27,7 @@ nav.pag{display:flex;justify-content:space-between;gap:1rem;margin-top:3.5rem;pa
 nav.pag a{text-decoration:none;max-width:48%} nav.pag .prox{text-align:right;margin-left:auto}
 nav.pag small{display:block;color:var(--muted)}
 .capa{text-align:center;padding-top:1rem}
-.capa img{width:100%;max-width:40rem;border-radius:3px;filter:sepia(.25)}
+.capa img{width:100%;max-width:22rem;border-radius:3px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
 .capa h1{font-size:2.5rem;margin:1.6rem 0 .4rem}
 .capa .sub{color:var(--muted);font-style:italic;margin:0 auto 1rem;max-width:32rem}
 .capa .autor{font-family:system-ui,"Segoe UI",sans-serif;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem}
